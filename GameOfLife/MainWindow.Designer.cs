@@ -29,19 +29,25 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BtnStart = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnStop = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.NUDPercentage = new System.Windows.Forms.NumericUpDown();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.BtnNext = new System.Windows.Forms.Button();
+            this.BtnPause = new System.Windows.Forms.Button();
             this.BtnRandom = new System.Windows.Forms.Button();
             this.BtnLoad = new System.Windows.Forms.Button();
-            this.BtnPause = new System.Windows.Forms.Button();
-            this.BtnNext = new System.Windows.Forms.Button();
+            this.BtnStop = new System.Windows.Forms.Button();
+            this.BtnStart = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDPercentage)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.NUDPercentage);
+            this.groupBox1.Controls.Add(this.BtnSave);
             this.groupBox1.Controls.Add(this.BtnNext);
             this.groupBox1.Controls.Add(this.BtnPause);
             this.groupBox1.Controls.Add(this.BtnRandom);
@@ -58,60 +64,36 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Control Panel";
             // 
-            // BtnStart
+            // label1
             // 
-            this.BtnStart.Location = new System.Drawing.Point(6, 25);
-            this.BtnStart.Name = "BtnStart";
-            this.BtnStart.Size = new System.Drawing.Size(89, 33);
-            this.BtnStart.TabIndex = 0;
-            this.BtnStart.Text = "Start";
-            this.BtnStart.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(499, 86);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Percentage:";
             // 
-            // panel1
+            // NUDPercentage
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.MaximumSize = new System.Drawing.Size(600, 600);
-            this.panel1.MinimumSize = new System.Drawing.Size(600, 600);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 600);
-            this.panel1.TabIndex = 1;
+            this.NUDPercentage.Location = new System.Drawing.Point(505, 109);
+            this.NUDPercentage.Name = "NUDPercentage";
+            this.NUDPercentage.Size = new System.Drawing.Size(83, 26);
+            this.NUDPercentage.TabIndex = 8;
+            this.NUDPercentage.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             // 
-            // BtnStop
+            // BtnSave
             // 
-            this.BtnStop.Location = new System.Drawing.Point(6, 64);
-            this.BtnStop.Name = "BtnStop";
-            this.BtnStop.Size = new System.Drawing.Size(89, 33);
-            this.BtnStop.TabIndex = 1;
-            this.BtnStop.Text = "Stop";
-            this.BtnStop.UseVisualStyleBackColor = true;
-            // 
-            // BtnRandom
-            // 
-            this.BtnRandom.Location = new System.Drawing.Point(505, 111);
-            this.BtnRandom.Name = "BtnRandom";
-            this.BtnRandom.Size = new System.Drawing.Size(89, 33);
-            this.BtnRandom.TabIndex = 3;
-            this.BtnRandom.Text = "Random";
-            this.BtnRandom.UseVisualStyleBackColor = true;
-            // 
-            // BtnLoad
-            // 
-            this.BtnLoad.Location = new System.Drawing.Point(410, 111);
-            this.BtnLoad.Name = "BtnLoad";
-            this.BtnLoad.Size = new System.Drawing.Size(89, 33);
-            this.BtnLoad.TabIndex = 2;
-            this.BtnLoad.Text = "Load";
-            this.BtnLoad.UseVisualStyleBackColor = true;
-            // 
-            // BtnPause
-            // 
-            this.BtnPause.Location = new System.Drawing.Point(101, 64);
-            this.BtnPause.Name = "BtnPause";
-            this.BtnPause.Size = new System.Drawing.Size(89, 33);
-            this.BtnPause.TabIndex = 4;
-            this.BtnPause.Text = "Pause";
-            this.BtnPause.UseVisualStyleBackColor = true;
+            this.BtnSave.Location = new System.Drawing.Point(505, 25);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(89, 33);
+            this.BtnSave.TabIndex = 7;
+            this.BtnSave.Text = "Save";
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // BtnNext
             // 
@@ -121,13 +103,63 @@
             this.BtnNext.TabIndex = 5;
             this.BtnNext.Text = "Next";
             this.BtnNext.UseVisualStyleBackColor = true;
+            this.BtnNext.Click += new System.EventHandler(this.BtnNext_Click);
+            // 
+            // BtnPause
+            // 
+            this.BtnPause.Location = new System.Drawing.Point(101, 64);
+            this.BtnPause.Name = "BtnPause";
+            this.BtnPause.Size = new System.Drawing.Size(89, 33);
+            this.BtnPause.TabIndex = 4;
+            this.BtnPause.Text = "Pause";
+            this.BtnPause.UseVisualStyleBackColor = true;
+            this.BtnPause.Click += new System.EventHandler(this.BtnPause_Click);
+            // 
+            // BtnRandom
+            // 
+            this.BtnRandom.Location = new System.Drawing.Point(410, 105);
+            this.BtnRandom.Name = "BtnRandom";
+            this.BtnRandom.Size = new System.Drawing.Size(89, 33);
+            this.BtnRandom.TabIndex = 3;
+            this.BtnRandom.Text = "Random";
+            this.BtnRandom.UseVisualStyleBackColor = true;
+            this.BtnRandom.Click += new System.EventHandler(this.BtnRandom_Click);
+            // 
+            // BtnLoad
+            // 
+            this.BtnLoad.Location = new System.Drawing.Point(410, 25);
+            this.BtnLoad.Name = "BtnLoad";
+            this.BtnLoad.Size = new System.Drawing.Size(89, 33);
+            this.BtnLoad.TabIndex = 2;
+            this.BtnLoad.Text = "Load";
+            this.BtnLoad.UseVisualStyleBackColor = true;
+            this.BtnLoad.Click += new System.EventHandler(this.BtnLoad_Click);
+            // 
+            // BtnStop
+            // 
+            this.BtnStop.Location = new System.Drawing.Point(6, 64);
+            this.BtnStop.Name = "BtnStop";
+            this.BtnStop.Size = new System.Drawing.Size(89, 33);
+            this.BtnStop.TabIndex = 1;
+            this.BtnStop.Text = "Stop";
+            this.BtnStop.UseVisualStyleBackColor = true;
+            this.BtnStop.Click += new System.EventHandler(this.BtnStop_Click);
+            // 
+            // BtnStart
+            // 
+            this.BtnStart.Location = new System.Drawing.Point(6, 25);
+            this.BtnStart.Name = "BtnStart";
+            this.BtnStart.Size = new System.Drawing.Size(89, 33);
+            this.BtnStart.TabIndex = 0;
+            this.BtnStart.Text = "Start";
+            this.BtnStart.UseVisualStyleBackColor = true;
+            this.BtnStart.Click += new System.EventHandler(this.BtnStart_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 752);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
@@ -137,9 +169,10 @@
             this.Name = "MainWindow";
             this.ShowIcon = false;
             this.Text = "Game Of Life";
-            this.TopMost = true;
-            this.Resize += new System.EventHandler(this.MainWindow_Resize);
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDPercentage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -148,12 +181,14 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button BtnStart;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnStop;
         private System.Windows.Forms.Button BtnNext;
         private System.Windows.Forms.Button BtnPause;
         private System.Windows.Forms.Button BtnRandom;
         private System.Windows.Forms.Button BtnLoad;
+        private System.Windows.Forms.Button BtnSave;
+        private System.Windows.Forms.NumericUpDown NUDPercentage;
+        private System.Windows.Forms.Label label1;
     }
 }
 
